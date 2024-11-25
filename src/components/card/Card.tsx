@@ -4,7 +4,7 @@ import Image, { StaticImageData } from "next/image";
 import "./style.scss";
 import file from "../../../public/file.svg";
 import mac2 from "../../../public/mac2.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { projects } from "../../data/projects/projects.js";
 
 type Project = {
@@ -21,15 +21,24 @@ export default function Card() {
   const [selectedFolder, setSelectedFolder] = useState<number | null>(null);
   const [selectProject, setSelectProject] = useState<Project | null>(null);
 
-  document.addEventListener("click", (e) => {
-    const target = e.target as HTMLElement;
-    if (
-      target.className !== "selectedFolder" &&
-      target.className !== "folder"
-    ) {
-      setSelectedFolder(null);
-    }
-  });
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (
+        target.className !== "selectedFolder" &&
+        target.className !== "folder"
+      ) {
+        setSelectedFolder(null);
+      }
+    };
+
+    document.addEventListener("click", handleClick);
+
+    // Nettoyer l'event listener pour éviter les fuites de mémoire
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, []); // Le tableau vide [] garant
 
   const handleclick = (index: number) => {
     setSelectedFolder(index);
