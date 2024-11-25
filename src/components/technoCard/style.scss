@@ -1,0 +1,67 @@
+@use "../../styles/variables.scss" as *;
+
+.technoCard {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 100px;
+  .card {
+    background: linear-gradient(
+      180deg,
+      var(--gradient-mac-start),
+      var(--gradient-mac-end)
+    );
+    height: 300px;
+    border-radius: 20px;
+    color: var(--grey-color);
+    .imageContainer {
+      position: relative;
+      justify-self: end;
+      padding: 0 0 8px 8px;
+      background-color: var(--background-color);
+      border-radius: 0 0 0 30px;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateX(-100%);
+        width: 30px;
+        height: 30px;
+        background-color: transparent;
+        border-radius: 0 20px 0 0;
+        box-shadow: 7px -7px 0 var(--background-color);
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        transform: translateY(100%);
+        width: 30px;
+        height: 30px;
+        background-color: transparent;
+        border-radius: 0 20px 0 0;
+        box-shadow: 7px -7px 0 var(--background-color);
+      }
+      .image {
+        background-color: var(--background-color);
+
+        border-radius: 50%;
+        padding: 15px;
+        & img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+  .text {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    padding: 0 20px;
+    justify-content: center;
+    margin-top: 70px;
+    font-weight: 700;
+  }
+}

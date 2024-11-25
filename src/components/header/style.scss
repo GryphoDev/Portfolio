@@ -1,0 +1,59 @@
+@use "../../styles/variables.scss" as *;
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(94deg, #0090f7, #ba62fc, #f2416b, #f55600);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  .logo {
+    margin-top: 10px;
+    font-family: $font-logo;
+    font-size: 2.3rem;
+    color: $grey-color;
+  }
+  .navbar {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    border-radius: 10px;
+
+    .theme-toggle {
+      cursor: pointer;
+    }
+
+    &__links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--title-color);
+      font-weight: 500;
+      &:hover {
+        animation: fadeIn 500ms ease-in-out forwards;
+      }
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      -webkit-text-fill-color: white;
+    }
+
+    to {
+      -webkit-text-fill-color: white;
+      transform: scale(1.1);
+      opacity: 1;
+    }
+  }
+
+  .socialLinks {
+    display: flex;
+    gap: 20px;
+    &__icons {
+      width: 2.3rem;
+    }
+  }
+}

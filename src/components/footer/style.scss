@@ -1,0 +1,25 @@
+@use "../../styles/variables.scss" as *;
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 100px;
+  background: linear-gradient(94deg, #0090f7, #ba62fc, #f2416b, #f55600);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.2rem;
+  font-weight: 500;
+  .logo {
+    font-family: $font-logo;
+    font-size: 2.3rem;
+    color: $grey-color;
+  }
+  .socialLinks {
+    display: flex;
+    gap: 20px;
+    &__icons {
+      width: 2.5rem;
+    }
+  }
+}

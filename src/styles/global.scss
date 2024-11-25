@@ -1,0 +1,31 @@
+@use "./variables.scss" as *;
+@use "./reset.scss" as *;
+
+:root {
+  // Light theme (default)
+  --background-color: white;
+  --title-color: black;
+  --grey-color: #474747;
+  --card-background: rgba(255, 255, 255, 0.068);
+  --gradient-mac-start: black;
+  --gradient-mac-end: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"] {
+  --background-color: black;
+  --title-color: white;
+  --grey-color: #b0b0ae;
+  --card-background: rgba(255, 255, 255, 0.147);
+  --gradient-mac-start: black;
+  --gradient-mac-end: rgba(255, 255, 255, 0.15);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: $font-text;
+  transition: background-color 0.3s, color 0.3s;
+}
