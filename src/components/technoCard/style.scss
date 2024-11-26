@@ -1,65 +1,48 @@
 .technoCard {
   display: flex;
-  gap: 10px;
-  margin-bottom: 100px;
-  .card {
-    background: linear-gradient(
-      180deg,
-      var(--gradient-mac-start),
-      var(--gradient-mac-end)
-    );
-    height: 300px;
-    border-radius: 20px;
-    color: var(--grey-color);
-    .imageContainer {
-      position: relative;
-      justify-self: end;
-      padding: 0 0 8px 8px;
-      background-color: var(--background-color);
-      border-radius: 0 0 0 30px;
-      &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        transform: translateX(-100%);
-        width: 30px;
-        height: 30px;
-        background-color: transparent;
-        border-radius: 0 20px 0 0;
-        box-shadow: 7px -7px 0 var(--background-color);
-      }
-      &::before {
-        content: "";
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        transform: translateY(100%);
-        width: 30px;
-        height: 30px;
-        background-color: transparent;
-        border-radius: 0 20px 0 0;
-        box-shadow: 7px -7px 0 var(--background-color);
-      }
-      .image {
-        background-color: var(--background-color);
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 80px;
 
-        border-radius: 50%;
-        padding: 15px;
-        & img {
-          width: 30px;
-          height: 30px;
+  .card {
+    width: 250px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid var(--grey-color);
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .imageContainer {
+      background: rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+
+      img {
+        width: 100px;
+        height: 100px;
+        filter: grayscale(30%);
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: rotate(10deg);
         }
       }
     }
-  }
-  .text {
-    width: 100%;
-    height: max-content;
-    display: flex;
-    padding: 0 20px;
-    justify-content: center;
-    margin-top: 70px;
-    font-weight: 700;
+
+    .text {
+      padding: 1.5rem;
+      text-align: center;
+      & p {
+        color: var(--grey-color);
+      }
+    }
   }
 }
