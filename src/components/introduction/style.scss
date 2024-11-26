@@ -1,25 +1,33 @@
-@use "../../styles/variables.scss" as *;
-
 .homeContent {
   display: flex;
   align-items: center;
   margin: 50px 0 100px;
+  gap: 50px;
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    margin: 10px 0 30px;
+    gap: 0;
+  }
   .titleDescription {
     width: 60%;
+    @media (max-width: 768px) {
+      width: 70%;
+    }
+    @media (max-width: 480px) {
+      width: 100%;
+    }
     .title {
       text-align: center;
       color: var(--title-color);
-      font-family: $font-title;
+      font-family: var(--font-gruppo);
       letter-spacing: 15px;
-      font-size: clamp(24px, 8vw, 100px);
+      font-size: clamp(24px, 7vw, 100px);
       line-height: 0.8;
       font-weight: 700;
       margin-bottom: 0.5rem;
     }
     .job {
       text-align: center;
-
-      font-family: $font-text;
       font-size: clamp(18px, 3vw, 45px);
       font-weight: 500;
       color: var(--title-color);
@@ -27,7 +35,6 @@
       margin-bottom: 2.5rem;
       & span {
         background: linear-gradient(45deg, #007bff, #00bcd4);
-
         color: black;
         border-radius: 3px;
         padding: 0 5px;
@@ -35,8 +42,6 @@
     }
     .description {
       text-align: center;
-
-      width: 90%;
       color: var(--grey-color);
       font-size: 1.2rem;
     }
@@ -47,5 +52,12 @@
     object-fit: cover;
     border-radius: 5px;
     background-color: black;
+    @media (max-width: 768px) {
+      width: 70%;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 480px) {
+      width: 100%;
+    }
   }
 }

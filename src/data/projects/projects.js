@@ -23,7 +23,7 @@ export const projects = [
     image: ohMyFood,
     techno: [html, sass],
     gitHub: "https://github.com",
-    source: "https://gryphodev.github.io/Ohmyfood/",
+    source: "https://gryphodev.github.io/Project-4_OhMyFood/",
   },
   {
     title: "Create a Dynamic Web Page with JavaScript",

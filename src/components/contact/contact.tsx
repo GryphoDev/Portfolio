@@ -47,7 +47,7 @@ export function Contact() {
 
   return (
     <section id="contact" className="contact">
-      <h2 className="contact__title">Get in touch</h2>
+      <h4 className="contact__title">Get in touch</h4>
       <form className="contact__form" onSubmit={handleSubmit}>
         {["name", "email", "message"].map((field) => (
           <div className="form__group" key={field}>

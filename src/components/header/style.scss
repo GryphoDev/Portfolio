@@ -1,23 +1,26 @@
-@use "../../styles/variables.scss" as *;
-
 header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   background: linear-gradient(94deg, #0090f7, #ba62fc, #f2416b, #f55600);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  .logo {
-    margin-top: 10px;
-    font-family: $font-logo;
-    font-size: 2.3rem;
-    color: $grey-color;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: normal;
   }
+
   .navbar {
     display: flex;
-    align-items: center;
-    gap: 100px;
     border-radius: 10px;
+    gap: 100px;
+    @media (max-width: 1024px) {
+      gap: 50px;
+    }
+    @media (max-width: 768px) {
+      gap: initial;
+      justify-content: space-between;
+    }
 
     .theme-toggle {
       cursor: pointer;
@@ -39,21 +42,28 @@ header {
   @keyframes fadeIn {
     0% {
       opacity: 0;
-      -webkit-text-fill-color: white;
+      -webkit-text-fill-color: var(--title-color);
     }
 
     to {
-      -webkit-text-fill-color: white;
-      transform: scale(1.1);
       opacity: 1;
+      -webkit-text-fill-color: var(--title-color);
+      transform: scale(1.1);
     }
   }
 
   .socialLinks {
     display: flex;
     gap: 20px;
+    @media (max-width: 768px) {
+      margin-top: 30px;
+      align-self: center;
+    }
     &__icons {
       width: 2.3rem;
+      @media (max-width: 480px) {
+        width: 1.8rem;
+      }
     }
   }
 }

@@ -4,7 +4,7 @@ import "./style.scss";
 export default function MyProjects() {
   return (
     <div className="containerCard">
-      <h2 id="projects">Selected projects</h2>
+      <h4 id="projects">Selected projects</h4>
       <Card />
     </div>
   );
