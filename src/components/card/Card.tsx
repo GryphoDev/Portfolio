@@ -4,6 +4,7 @@ import Image, { StaticImageData } from "next/image";
 import "./style.scss";
 import file from "../../../public/file.svg";
 import mac2 from "../../../public/mac2.png";
+import iphone from "../../../public/iphone.jpeg";
 import { useState, useEffect } from "react";
 import { projects } from "../../data/projects/projects.js";
 
@@ -20,6 +21,26 @@ export default function Card() {
   const folders = ["booki", "oh-my-food", "sophie-bluel"];
   const [selectedFolder, setSelectedFolder] = useState<number | null>(null);
   const [selectProject, setSelectProject] = useState<Project | null>(null);
+  const [imageResponsive, setImageResponsive] = useState(mac2);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setImageResponsive(iphone); // Image pour petits écrans
+      } else {
+        setImageResponsive(mac2); // Image pour grands écrans
+      }
+    };
+
+    // Appeler handleResize au montage pour définir la bonne image initiale
+    handleResize();
+
+    // Ajouter un écouteur d'événements pour la redimension de la fenêtre
+    window.addEventListener("resize", handleResize);
+
+    // Nettoyer l'écouteur d'événements lorsque le composant est démonté
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -91,7 +112,12 @@ export default function Card() {
         </>
       ) : (
         <>
-          <Image className="macImage" src={mac2} alt="mac" priority />
+          <Image
+            className="macImage"
+            src={imageResponsive}
+            alt="mac"
+            priority
+          />
           <div className="folderContainer">
             {folders.map((title, index) => (
               <div
