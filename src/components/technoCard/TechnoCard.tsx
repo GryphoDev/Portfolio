@@ -37,7 +37,7 @@ export default function TechnoCard() {
   return (
     <div className="technoCard">
       {techno.map((item, index) => (
-        <div key={index} className="card">
+        <div key={index} className="cardTechno">
           <div className="imageContainer">
             <div className="image">
               <Image src={item.image} alt={item.name} />

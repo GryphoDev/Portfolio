@@ -31,14 +31,8 @@ export default function Card() {
         setImageResponsive(mac2); // Image pour grands écrans
       }
     };
-
-    // Appeler handleResize au montage pour définir la bonne image initiale
     handleResize();
-
-    // Ajouter un écouteur d'événements pour la redimension de la fenêtre
     window.addEventListener("resize", handleResize);
-
-    // Nettoyer l'écouteur d'événements lorsque le composant est démonté
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -76,9 +70,25 @@ export default function Card() {
 
   return (
     <div className="card">
-      {selectProject ? (
-        <>
-          <div className="projectBar">
+      <Image className="macImage" src={imageResponsive} alt="mac" priority />
+      <div className="folderContainer">
+        {folders.map((title, index) => (
+          <div
+            onClick={() => handleclick(index)}
+            onDoubleClick={() => handledoubleclick(index)}
+            className="folders"
+            key={title}
+          >
+            <Image className="folder" src={file} alt="booki" />
+            <span className={selectedFolder === index ? "selectedFolder" : " "}>
+              {title}
+            </span>
+          </div>
+        ))}
+      </div>
+      {selectProject && (
+        <div className="projectBar">
+          <div className="projectBarContent">
             <div onClick={() => setSelectProject(null)} className="closeButton">
               <span>X</span>
             </div>
@@ -109,34 +119,83 @@ export default function Card() {
             src={selectProject.image}
             alt="project"
           />
-        </>
-      ) : (
-        <>
-          <Image
-            className="macImage"
-            src={imageResponsive}
-            alt="mac"
-            priority
-          />
-          <div className="folderContainer">
-            {folders.map((title, index) => (
-              <div
-                onClick={() => handleclick(index)}
-                onDoubleClick={() => handledoubleclick(index)}
-                className="folders"
-                key={title}
-              >
-                <Image className="folder" src={file} alt="booki" />
-                <span
-                  className={selectedFolder === index ? "selectedFolder" : " "}
-                >
-                  {title}
-                </span>
-              </div>
-            ))}
-          </div>
-        </>
+        </div>
       )}
     </div>
+
+    //     {selectProject ? (
+    //       <>
+    //         <div className="content">
+    //           <Image
+    //             className="macImage none"
+    //             src={imageResponsive}
+    //             alt="mac"
+    //             priority
+    //           />
+    //           <div className="projectBar">
+    //             <div
+    //               onClick={() => setSelectProject(null)}
+    //               className="closeButton"
+    //             >
+    //               <span>X</span>
+    //             </div>
+    //             <div className="descriptionContainer">
+    //               <h3 className="projectTitle">{selectProject.title}</h3>
+    //               <p className="description">{selectProject.description}</p>
+    //               <p className="source">
+    //                 This is a preview of the site, which is non-functional.
+    //                 {selectProject.source ? (
+    //                   <>
+    //                     <br />
+    //                     To view the fully functional site :{" "}
+    //                     <a href={selectProject.source}>Click here</a>
+    //                   </>
+    //                 ) : (
+    //                   ""
+    //                 )}
+    //               </p>
+    //             </div>
+    //             <div className="technoContainer">
+    //               {selectProject.techno.map((tech, index) => (
+    //                 <Image key={index} src={tech} alt="tech" />
+    //               ))}
+    //             </div>
+    //           </div>
+    //           <Image
+    //             className="projectImage"
+    //             src={selectProject.image}
+    //             alt="project"
+    //           />
+    //         </div>
+    //       </>
+    //     ) : (
+    //       <>
+    //         <Image
+    //           className="macImage"
+    //           src={imageResponsive}
+    //           alt="mac"
+    //           priority
+    //         />
+    //         <div className="folderContainer">
+    //           {folders.map((title, index) => (
+    //             <div
+    //               onClick={() => handleclick(index)}
+    //               onDoubleClick={() => handledoubleclick(index)}
+    //               className="folders"
+    //               key={title}
+    //             >
+    //               <Image className="folder" src={file} alt="booki" />
+    //               <span
+    //                 className={selectedFolder === index ? "selectedFolder" : " "}
+    //               >
+    //                 {title}
+    //               </span>
+    //             </div>
+    //           ))}
+    //         </div>
+    //       </>
+    //     )}
+    //   </div>
+    // );
   );
 }
