@@ -10,7 +10,6 @@
   box-shadow: 0 0 50px rgba(255, 255, 255, 0.39);
 
   @media (max-width: 768px) {
-    width: 80%;
     border-radius: 50px;
   }
 
@@ -42,7 +41,8 @@
 
     @media (max-width: 768px) {
       flex-direction: column;
-      left: 60%;
+      top: 40%;
+      left: 70%;
     }
 
     .folders {
@@ -79,19 +79,22 @@
     top: 0;
 
     .projectBarContent {
-      padding: 15px 0 25px;
+      padding: 15px 15px 25px;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       background-color: black;
       opacity: 0;
       animation: fadeIn 500ms forwards;
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 15px;
+        font-size: 0.8rem;
+      }
 
       .closeButton {
-        position: absolute;
-        top: 15px;
-        left: 15px;
         display: flex;
+        align-self: self-start;
         justify-content: center;
         align-items: center;
         width: 20px;
@@ -120,8 +123,12 @@
         align-items: center;
         gap: 15px;
         width: 70%;
+        @media (max-width: 768px) {
+          width: 95%;
+        }
 
         .projectTitle {
+          text-align: center;
           background: linear-gradient(
             94deg,
             #0090f7,
@@ -134,7 +141,6 @@
         }
 
         .description {
-          font-size: 1rem;
           text-align: center;
           color: var(--grey-color);
         }
@@ -154,15 +160,17 @@
       }
 
       .technoContainer {
-        position: absolute;
-        right: 15px;
         display: flex;
+        flex-direction: column;
         gap: 10px;
         align-self: self-start;
-
+        @media (max-width: 768px) {
+          flex-direction: row;
+          align-self: center;
+        }
         img {
-          width: 40px;
-          height: 40px;
+          width: 35px;
+          height: 35px;
         }
       }
     }

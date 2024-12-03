@@ -12,6 +12,7 @@ type Project = {
   title: string;
   description: string;
   image: StaticImageData;
+  imageResponsive: StaticImageData;
   techno: StaticImageData[];
   gitHub: string;
   source?: string;
@@ -116,7 +117,11 @@ export default function Card() {
           </div>
           <Image
             className="projectImage"
-            src={selectProject.image}
+            src={
+              imageResponsive === iphone
+                ? selectProject.imageResponsive
+                : selectProject.image
+            }
             alt="project"
           />
         </div>
