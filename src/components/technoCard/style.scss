@@ -1,12 +1,14 @@
 .technoCard {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   gap: 2rem;
   margin-bottom: 80px;
-
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
   .cardTechno {
-    width: 250px;
+    width: 100%;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 20px;
