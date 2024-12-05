@@ -71,7 +71,7 @@ export default function Card() {
 
   return (
     <div className="card">
-      <Image className="macImage" src={imageResponsive} alt="mac" priority />
+      <Image className="macImage" src={imageResponsive} alt="mac" />
       <div className="folderContainer">
         {folders.map((title, index) => (
           <div
@@ -127,80 +127,5 @@ export default function Card() {
         </div>
       )}
     </div>
-
-    //     {selectProject ? (
-    //       <>
-    //         <div className="content">
-    //           <Image
-    //             className="macImage none"
-    //             src={imageResponsive}
-    //             alt="mac"
-    //             priority
-    //           />
-    //           <div className="projectBar">
-    //             <div
-    //               onClick={() => setSelectProject(null)}
-    //               className="closeButton"
-    //             >
-    //               <span>X</span>
-    //             </div>
-    //             <div className="descriptionContainer">
-    //               <h3 className="projectTitle">{selectProject.title}</h3>
-    //               <p className="description">{selectProject.description}</p>
-    //               <p className="source">
-    //                 This is a preview of the site, which is non-functional.
-    //                 {selectProject.source ? (
-    //                   <>
-    //                     <br />
-    //                     To view the fully functional site :{" "}
-    //                     <a href={selectProject.source}>Click here</a>
-    //                   </>
-    //                 ) : (
-    //                   ""
-    //                 )}
-    //               </p>
-    //             </div>
-    //             <div className="technoContainer">
-    //               {selectProject.techno.map((tech, index) => (
-    //                 <Image key={index} src={tech} alt="tech" />
-    //               ))}
-    //             </div>
-    //           </div>
-    //           <Image
-    //             className="projectImage"
-    //             src={selectProject.image}
-    //             alt="project"
-    //           />
-    //         </div>
-    //       </>
-    //     ) : (
-    //       <>
-    //         <Image
-    //           className="macImage"
-    //           src={imageResponsive}
-    //           alt="mac"
-    //           priority
-    //         />
-    //         <div className="folderContainer">
-    //           {folders.map((title, index) => (
-    //             <div
-    //               onClick={() => handleclick(index)}
-    //               onDoubleClick={() => handledoubleclick(index)}
-    //               className="folders"
-    //               key={title}
-    //             >
-    //               <Image className="folder" src={file} alt="booki" />
-    //               <span
-    //                 className={selectedFolder === index ? "selectedFolder" : " "}
-    //               >
-    //                 {title}
-    //               </span>
-    //             </div>
-    //           ))}
-    //         </div>
-    //       </>
-    //     )}
-    //   </div>
-    // );
   );
 }
