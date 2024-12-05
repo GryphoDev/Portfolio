@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://portfolio-mauroux-william.vercel.app/sitemap.xml
